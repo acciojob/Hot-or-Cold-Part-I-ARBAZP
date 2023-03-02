@@ -4,15 +4,43 @@
 </head>
 <body>
 	<!-- p tag -->
-	<p id="main">I am learning to generate random number. I will be able to handle randomness in any of my applications that needs it. Press the button to get a random number.</p>
     <p id = "user">Enter a Guessed Number </p>
     <input id= "guess"></input><br><br>
 	<!-- button -->
-	<button id="btn" onclick="randomNumGenerator() ">click here</button>
     <!-- p tag -->
-	<p id = "num"></p>
     <p id = "respond"></p>  <!-- This is the respone (Hot or Cold) -->
-    <script type="text/javascript" src="./script.js">  <!-- Write the logic in script.js -->
+	<p id="main">I am learning to generate random number. I will be able to handle randomness in any of my applications that needs it. Press the button to get a random number.</p>
+	<button id="btn">Generate random value</button>
+	<p id="num"></p>
+    <script >
+	    <!-- Write the logic in script.js -->
+	    
+var buttone = document.getElementById("btn");
+var input;
+var RanNo
+
+
+function generateRandomValue(){
+	RanNo= Math.floor(Math.random()* 41)-20;
+	document.getElementById("num").innerText =RanNo;
+	getGuess();
+	result();
+}
+function getGuess(){
+	input = Number(document.getElementById("guess").value);
+}
+function result(){
+	
+	if(Math.abs(RanNo - input) <= 5){
+	document.getElementById("respond").innerText ="Hot";
+	}
+	else{
+	document.getElementById("respond").innerHTML ="Cold";
+	}
+}
+buttone.addEventListener("click", generateRandomValue)
+
+	    
 </script>
   </body>
 </html>
